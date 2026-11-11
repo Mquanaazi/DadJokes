@@ -1,10 +1,38 @@
-﻿using System;
+﻿using DadJoke.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace DadJoke.ViewModels
+using System.Text;
+using System.Windows.Input;
+
+namespace DadJoke.ViewModels;
+public class JokesViewModel : BaseViewModel
 {
-    internal class JokesViewModel
+    private string _dadJoke;
+
+    public ICommand GetJokeCommand { get; }
+
+    public string DadJoke
     {
+        get { return _dadJoke; }
+        set
+        {
+            _dadJoke = value;
+            OnPropertyChanged();
+        }
     }
+
+
+        private IDadJokesHttpApiServices _dadJokeHttpApiServices;
+        public JokesViewModel(IDadJokesHttpApiServices service)
+        {
+            _dadJokeHttpApiServices  = service;
+            GetJokeCommand = new Command(FetchJoke);
+        }
+        private async void FetchJoke(object param)
+        {
+            await _dadJokeHttpApiServices.GetDadJokeAsync();
+        }
 }
+
+

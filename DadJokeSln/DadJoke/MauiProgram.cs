@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DadJoke.Interfaces;
+using DadJoke.ViewModels;
+using DadJoke.Views;
+using Microsoft.Extensions.Logging;
+using DadJoke.Services;
 
 namespace DadJoke
 {
@@ -18,6 +22,12 @@ namespace DadJoke
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<IConfigurationServices, ConfigurationService>();
+            builder.Services.AddSingleton<IDadJokesHttpApiServices, DadJokesHttpApiServices>();
+            builder.Services.AddSingleton<IPopUp, MauiPopupService>();
+
+            builder.Services.AddTransient<JokesViewModel>();
+            builder.Services.AddTransient<JokesView>();
 
             return builder.Build();
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DadJoke.Interfaces
 {
-    internal interface IConfigurationServices
+    public interface IConfigurationServices
     {
         string DadJokesApiUrl { get; }
     }

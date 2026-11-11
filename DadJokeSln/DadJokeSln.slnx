@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="DadJoke/DadJoke.csproj" />
+  <Project Path="DadJoke/DadJoke.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
