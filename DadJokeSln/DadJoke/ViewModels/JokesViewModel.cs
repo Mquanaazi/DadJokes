@@ -24,16 +24,29 @@ public class JokesViewModel : BaseViewModel
 
 
         private IDadJokesHttpApiServices _dadJokeHttpApiServices;
-        public JokesViewModel(IDadJokesHttpApiServices service)
+    private IPopUp _popUp;
+
+        public JokesViewModel(IDadJokesHttpApiServices service , IPopUp popUp)
         {
             _dadJokeHttpApiServices  = service;
+            _popUp = popUp;
 
 
             GetJokeCommand = new Command(FetchJoke);
         }
         private async void FetchJoke(object param)
         {
+
+        try
+        {
             DadJoke = await _dadJokeHttpApiServices.GetDadJokeAsync();
+
+        }
+        catch (Exception e)
+        {
+
+            await 
+        }
         }
 }
 
