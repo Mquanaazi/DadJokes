@@ -5,7 +5,7 @@
              Title="JokesView">
     <VerticalStackLayout>
         <Label 
-            Text = "{Binding DadJoke}"/>
+            Text="{Binding DadJoke}"/>
         <Label />
         <Button
             Text="Get Joke"

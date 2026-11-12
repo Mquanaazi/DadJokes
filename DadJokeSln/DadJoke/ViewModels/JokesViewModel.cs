@@ -27,11 +27,13 @@ public class JokesViewModel : BaseViewModel
         public JokesViewModel(IDadJokesHttpApiServices service)
         {
             _dadJokeHttpApiServices  = service;
+
+
             GetJokeCommand = new Command(FetchJoke);
         }
         private async void FetchJoke(object param)
         {
-            await _dadJokeHttpApiServices.GetDadJokeAsync();
+            DadJoke = await _dadJokeHttpApiServices.GetDadJokeAsync();
         }
 }
 
