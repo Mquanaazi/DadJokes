@@ -6,6 +6,8 @@
     <VerticalStackLayout>
         <Label 
             Text="{Binding DadJoke}"/>
+        <Label 
+            Text="{Binding ChuckJoke}"/>
         <Label />
         <Button
             Text="Get Joke"

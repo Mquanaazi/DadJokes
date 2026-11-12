@@ -7,5 +7,6 @@ namespace DadJoke.Interfaces
     public interface IConfigurationServices
     {
         string DadJokesApiUrl { get; }
+        string ChuckNorrisApiUrl { get; }
     }
 }
